@@ -48,6 +48,18 @@
                 {% unless site.pinterest_username ==  %}
                 <a href="https://www.pinterest.com/{{site.reddit_username}}" target="_blank" class="has-text-black"><i class="fab fa-pinterest"></i></a>
                 {% endunless %}
+                {% unless site.medium_username ==  %}
+                <a href="https://www.medium.com/@{{site.medium_username}}" target="_blank" class="has-text-black"><i class="fab fa-medium"></i></a>
+                {% endunless %}                
+                {% unless site.tumblr_username ==  %}
+                <a href="https://{{site.reddit_username}}.tumblr.com" target="_blank" class="has-text-black"><i class="fab fa-pinterest"></i></a>
+                {% endunless %}
+                {% unless site.deviantart_username ==  %}
+                <a href="https://www.deviantart.com/{{site.deviantart_username}}" target="_blank" class="has-text-black"><i class="fab fa-deviantart"></i></a>
+                {% endunless %}
+                {% unless site.wattpad_username ==  %}
+                <a href="https://www.wattpad.com/user/{{site.wattpad_username}}" target="_blank" class="has-text-black"><i class="fab fa-wattpad"></i></a>
+                {% endunless %}
 
 
 
