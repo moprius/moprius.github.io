@@ -30,7 +30,25 @@ layout: compress
             <p id="description" class="content is-small has-text-weight-medium is-uppercase">{{page.description | strip | strip_html | strip_newlines }}</p>
             {% endunless %}
             <p class="subtitle is-6 is-uppercase has-text-weight-normal has-text-black-ter">Publicado em
-              <b>{{ page.date | date: "%-d de %B de %Y" }}</b> por <a href="{% if site.author-url %}{{site.author-url}}{% else %}{{site.url}}{{site.baseurl}}/#about{% endif %}" target="_blank"><b class="has-text-link"><u>{{site.author-name}}</u></b>
+              <b>
+                {% assign d = page.date | date: "%-d" %}
+                {% assign m = page.date | date: "%-m" %}
+                {% assign y = page.date | date: "%Y" %}
+                {% case m %}
+                  {% when '1' %}{{ d }} de Janeiro de {{ y }}
+                  {% when '2' %}{{ d }} de Fevereiro de {{ y }}
+                  {% when '3' %}{{ d }} de Março de {{ y }}
+                  {% when '4' %}{{ d }} de Abril de {{ y }}
+                  {% when '5' %}{{ d }} de Maio de {{ y }}
+                  {% when '6' %}{{ d }} de Junho de {{ y }}
+                  {% when '7' %}{{ d }} de Julho de {{ y }}
+                  {% when '8' %}{{ d }} de Agosto de {{ y }}
+                  {% when '9' %}{{ d }} de Setembro de {{ y }}
+                  {% when '10' %}{{ d }} de Outubro de {{ y }}
+                  {% when '11' %}{{ d }} de Novembro de {{ y }}
+                  {% when '12' %}{{ d }} de Dezembro de {{ y }}
+                {% endcase %}
+              </b> por <a href="{% if site.author-url %}{{site.author-url}}{% else %}{{site.url}}{{site.baseurl}}/#about{% endif %}" target="_blank"><b class="has-text-link"><u>{{site.author-name}}</u></b>
               </a>
             </p>
             {%- assign tags = page.tags -%}
