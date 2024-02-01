@@ -1,5 +1,5 @@
 ---
-title: Test Page
+title: Teste da Página
 layout: page
 ---
 
