@@ -8,7 +8,25 @@
             <div class="content has-text-grey">
                 {{ post.content | truncate: 300 | strip_html | strip_newlines | strip | escape }}
                 <hr class="has-background-grey">
-                <span class="has-text-grey">Publicado em <span class="has-text-weight-semibold">{{ post.date | date: "%-B %d, %Y" }}</span></span> | <i class="fas fa-clock"></i> <span class="has-text-weight-semibold">{% assign words = post.content | number_of_words %}{%- unless content.size == 0 -%}{{ words | divided_by:180 }} min{% endunless %}</span> read
+                <span class="has-text-grey">Publicado em <span class="has-text-weight-semibold">
+                  {% assign d = post.date | date: "%-d" %}
+                  {% assign m = post.date | date: "%-m" %}
+                  {% assign y = post.date | date: "%Y" %}
+                  {% case m %}
+                    {% when '1' %}{{ d }} de Janeiro de {{ y }}
+                    {% when '2' %}{{ d }} de Fevereiro de {{ y }}
+                    {% when '3' %}{{ d }} de Março de {{ y }}
+                    {% when '4' %}{{ d }} de Abril de {{ y }}
+                    {% when '5' %}{{ d }} de Maio de {{ y }}
+                    {% when '6' %}{{ d }} de Junho de {{ y }}
+                    {% when '7' %}{{ d }} de Julho de {{ y }}
+                    {% when '8' %}{{ d }} de Agosto de {{ y }}
+                    {% when '9' %}{{ d }} de Setembro de {{ y }}
+                    {% when '10' %}{{ d }} de Outubro de {{ y }}
+                    {% when '11' %}{{ d }} de Novembro de {{ y }}
+                    {% when '12' %}{{ d }} de Dezembro de {{ y }}
+                  {% endcase %}
+                </span></span> | <i class="fas fa-clock"></i> <span class="has-text-weight-semibold">{% assign words = post.content | number_of_words %}{%- unless post.content.size == 0 -%}{{ words | divided_by:180 }} min de leitura{% endunless %}</span>
             </div>
         </div>
     </a>
